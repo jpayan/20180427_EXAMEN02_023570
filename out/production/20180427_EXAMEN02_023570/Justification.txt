@@ -1,0 +1,10 @@
+El diseño del programa implementa dos patrones: Factory y Command.
+Existen las entidades Robot y Task, donde robot es el trabajador y task es el trabajo que se debe realizar.
+Estos robots tienen una lista de tasks, donde cargan las tareas que encuentran en la lista principal de tareas.
+Las tasks implementan una interfaz Command con un método execute que se usa para ejecutar la acción concreta de las tasks concretas
+
+La parte que utiliza Factory es simple, solamente fabricamos los robots que harán el trabajo.
+El patrón de command fue implementado con modificaciones, donde el robot es un invoker, los commandos son tasks y los comandos concretos son tasks concretas como BendMetal o EatCereal.
+
+Cada robot corre sus tasks en threads y verifica si puede cargar más tareas.
+El Client es donde tenemos la lista de tareas, la lista de robots y hacemos que todos los robots trabajen en paralelo.

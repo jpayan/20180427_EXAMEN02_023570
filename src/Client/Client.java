@@ -1,7 +1,7 @@
 package Client;
 
 import Commands.Task;
-import ConcreteCommands.CutWood;
+import ConcreteCommands.*;
 import Enums.RobotType;
 import Factory.RobotFactory;
 import Invoker.Robot;
@@ -20,8 +20,12 @@ public class Client {
             add(robotFactory.makeRobot(RobotType.LARGE));
         }};
 
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 4; i++) {
+            tasks.add(new BendMetal(i));
+            tasks.add(new ChargeBattery(i));
             tasks.add(new CutWood(i));
+            tasks.add(new EatCereal(i));
+            tasks.add(new PaintWall(i));
         }
 
         for (Robot robot : robots) {
